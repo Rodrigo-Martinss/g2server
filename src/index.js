@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-
 const server = express();
+
+const db = require('../models/db');
+
 server.use(cors());
 server.use(express.json());
 
