@@ -1,17 +1,17 @@
 const  Sequelize = require('sequelize');
 
-
-const sequelize = new Sequelize('g2server', 'root', '123456', {
+const database = new Sequelize('g2server', 'root', '123456', {
     host:'localhost',
-    dialect: 'mysql'
+    dialect: 'mysql',
+    port:'3306'
 });
 
 
-sequelize.authenticate()
+database.authenticate()
 .then(() => {
     console.log("Conectado ao Banco de Dados");
 }).catch(() => {
     console.log("Não foi possível se conectar com o Banco de Dados");
 });
 
-module.exports = sequelize;
+module.exports = database;
