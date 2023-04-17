@@ -9,31 +9,23 @@ server.use(express.json());
 
 const port = 3333;
 
-const users = [
-  {
-    id: 1,
-    name: "joao",
-  },
-  {
-    id: 2,
-    name: "Davi",
-  },
-];
+const visitas = [];
 
 server.get("/", (request, response) => {
-  return response.json(users);
+  return response.json(visitas);
 });
 
 server.post("/createuser", (request, response) => {
   const data = request.body;
   console.log(data);
 
-  const user = {
-    id: data.id,
-    name: data.name,
+  const visita = {
+    tecnico: data.tecnico,
+    cliente: data.cliente,
+    solicitacao: data.solicitacao,
   };
 
-  users.push(user);
+  visitas.push(visita);
 
   return response.status(200).json("usuário cadastrado com sucesso");
 });
